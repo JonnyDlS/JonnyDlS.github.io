@@ -601,5 +601,122 @@ nav a{
 
 </footer>
 
+<!-- FOOTER MODERNO -->
+<footer class="footer">
+    
+    <div class="footer-content">
+        <h2>✨ Integrantes del Proyecto ✨</h2>
+
+        <div class="integrantes">
+            <span>Fernanda</span>
+            <span>Melisa Sofía</span>
+            <span>Emely</span>
+            <span>Saraah</span>
+            <span>Ximenna</span>
+        </div>
+
+        <p class="grupo">💜 Grupo 3F 💜</p>
+
+        <div class="line"></div>
+
+        <small>Proyecto desarrollado con dedicación y creatividad</small>
+    </div>
+
+</footer>
+
+<style>
+
+.footer{
+    width:100%;
+    padding:60px 20px;
+    background:linear-gradient(135deg,#111,#1f1f1f,#2d2d2d);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:60px;
+}
+
+.footer-content{
+    width:100%;
+    max-width:900px;
+    text-align:center;
+    color:white;
+}
+
+.footer h2{
+    font-size:38px;
+    margin-bottom:35px;
+    letter-spacing:2px;
+    text-shadow:0 0 15px rgba(255,255,255,.3);
+}
+
+.integrantes{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.integrantes span{
+    padding:14px 28px;
+    border-radius:50px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    font-size:18px;
+    transition:.3s;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+.integrantes span:hover{
+    transform:translateY(-6px) scale(1.05);
+    background:#a855f7;
+    box-shadow:0 0 20px rgba(168,85,247,.7);
+}
+
+.grupo{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:25px;
+    color:#d8b4fe;
+}
+
+.line{
+    width:120px;
+    height:4px;
+    background:#a855f7;
+    margin:25px auto;
+    border-radius:10px;
+    box-shadow:0 0 15px #a855f7;
+}
+
+.footer small{
+    color:#bbb;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+
+.footer h2{
+    font-size:28px;
+}
+
+.integrantes span{
+    width:100%;
+    max-width:280px;
+}
+
+.grupo{
+    font-size:22px;
+}
+
+}
+
+</style>
+
 </body>
 </html>
