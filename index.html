@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MultiDuck</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(to bottom,#F1F5F9,#FFFFFF);
+    color:#333;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(135deg,#111827,#0F172A);
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    border-bottom:3px solid #14B8A6;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.logo-box{
+    width:120px;
+    height:120px;
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    overflow:hidden;
+    border:3px solid #14B8A6;
+    box-shadow:0 0 25px rgba(20,184,166,0.4);
+    transition:0.3s;
+}
+
+.logo-box:hover{
+    transform:scale(1.05);
+}
+
+.logo-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.header h1{
+    color:white;
+    font-size:55px;
+    letter-spacing:2px;
+}
+
+.header p{
+    color:#CBD5E1;
+    margin-top:8px;
+    font-size:18px;
+}
+
+/* NAV */
+
+nav{
+    background:#0F172A;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.nav-logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+    font-size:17px;
+}
+
+nav a:hover{
+    color:#14B8A6;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    padding:40px 20px;
+
+    background:
+    linear-gradient(rgba(17,24,39,0.75),rgba(17,24,39,0.75)),
+    url('imagenes/banner.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:15px;
+    text-shadow:0 5px 10px rgba(0,0,0,0.4);
+}
+
+.hero p{
+    font-size:22px;
+    color:#E2E8F0;
+}
+
+/* CONTENEDOR */
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:60px 0;
+}
+
+.container h2{
+    font-size:40px;
+    color:#111827;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    width:100%;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.4s;
+    animation:fadeUp 1s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.18);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px 20px 5px;
+    color:#111827;
+}
+
+.card p{
+    padding:0 20px 20px;
+    line-height:1.6;
+}
+
+/* BOTONES */
+
+button{
+    margin:0 20px 20px;
+    background:linear-gradient(135deg,#0EA5E9,#14B8A6);
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(14,165,233,0.3);
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 10px 20px rgba(14,165,233,0.4);
+}
+
+/* INFO BOX */
+
+.info-box{
+    background:white;
+    padding:45px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    margin-top:40px;
+    border-left:8px solid #14B8A6;
+    transition:0.3s;
+    animation:fadeUp 1s ease;
+}
+
+.info-box:hover{
+    transform:scale(1.01);
+}
+
+.info-box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.info-box p{
+    text-align:center;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.objetivo{
+    border-left:8px solid #FF6B35;
+}
+
+/* CONTACTO */
+
+.contact-box{
+    background:linear-gradient(135deg,#111827,#1E293B);
+    color:white;
+    padding:50px;
+    border-radius:35px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    border:2px solid #14B8A6;
+    animation:fadeUp 1s ease;
+}
+
+.contact-box h2{
+    color:#14B8A6;
+    margin-bottom:25px;
+    font-size:45px;
+}
+
+.contact-box p{
+    margin:15px 0;
+    font-size:18px;
+    color:#E2E8F0;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+    font-size:16px;
+}
+
+/* ANIMACIONES */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.logo-section{
+    flex-direction:column;
+}
+
+.header h1{
+    font-size:38px;
+}
+
+.header p{
+    font-size:16px;
+}
+
+.hero{
+    min-height:70vh;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:38px;
+    line-height:1.2;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.container{
+    width:95%;
+}
+
+.container h2{
+    font-size:30px;
+}
+
+.info-box,
+.contact-box{
+    padding:30px 20px;
+}
+
+.contact-box h2{
+    font-size:35px;
+}
+
+nav a{
+    font-size:15px;
+}
+
+.nav-container{
+    justify-content:center;
+    gap:15px;
+}
+
+.logo-box{
+    width:90px;
+    height:90px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo-section">
+
+        <div class="logo-box">
+            <img src="imagenes/logo.png" alt="Logo MultiDuck">
+        </div>
+
+        <div>
+            <h1>MultiDuck</h1>
+            <p>Diseño, modelado e impresión 3D personalizada</p>
+        </div>
+
+    </div>
+
+</header>
+
+<!-- NAV -->
+
+<nav>
+
+    <div class="nav-container">
+
+        <div class="nav-logo">MultiDuck</div>
+
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div>
+        <h1>Transformamos tus ideas en realidad</h1>
+
+        <p>
+            Creatividad, tecnología y diseño convertidos en productos reales
+        </p>
+    </div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section class="container" id="servicios">
+
+    <h2 style="text-align:center; margin-bottom:30px;">
+        ¿Qué ofrecemos?
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img src="imagenes/IMG-20260509-WA0015.jpg" alt="Impresión en resina">
+
+            <h3>Impresión 3D en Resina</h3>
+
+            <p>
+                Creaciones detalladas y de alta calidad para miniaturas,
+                figuras y diseños personalizados.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img src="imagenes/IMG-20260509-WA0014.jpg" alt="Impresión en filamento">
+
+            <h3>Impresión 3D en Filamento</h3>
+
+            <p>
+                Fabricación de piezas funcionales,
+                decorativas y accesorios personalizados.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img src="imagenes/IMG-20260509-WA0029.jpg" alt="Diseño y modelado 3D">
+
+            <h3>Diseño y Modelado 3D</h3>
+
+            <p>
+                Diseñamos prototipos, robots,
+                lámparas y productos únicos adaptados a tus ideas.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- QUIENES SOMOS -->
+
+<section class="container">
+
+    <div class="info-box">
+
+        <h2>¿Quiénes somos?</h2>
+
+        <p>
+            Somos un equipo creativo apasionado por la tecnología y el diseño,
+            enfocado en desarrollar ideas originales mediante impresión 3D,
+            brindando atención personalizada y soluciones innovadoras para cada proyecto.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- OBJETIVO -->
+
+<section class="container">
+
+    <div class="info-box objetivo">
+
+        <h2>Nuestro Objetivo</h2>
+
+        <p>
+            Transformar ideas en productos reales y personalizados mediante impresión 3D,
+            ofreciendo soluciones creativas, innovadoras y accesibles para distintos tipos de proyectos.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section class="container" id="contacto">
+
+    <div class="contact-box">
+
+        <h2>Contacto</h2>
+
+        <p>📍 Punto de venta físico en: @aquelarre_showroom</p>
+
+        <p>📌 Av. Preparatoria #208</p>
+
+        <p>📞 492-429-5160</p>
+
+        <p>✉ Ideamos3dprint@gmail.com</p>
+
+        <p>📸 Instagram: @mult1_duck</p>
+
+        <p>🕒 Lunes a viernes de 10:00 a.m. a 6:00 p.m.</p>
+
+    </div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="container">
+
+    <h2 style="text-align:center; margin-bottom:30px;">
+        Galería de Proyectos
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img src="imagenes/IMG-20260509-WA0035.jpg" alt="Proyecto 1">
+
+            <h3>Miniaturas</h3>
+
+            <p>
+                Diseños detallados ideales para coleccionistas y juegos.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img src="imagenes/IMG-20260509-WA0022.jpg" alt="Proyecto 2">
+
+            <h3>Llaveros Personalizados</h3>
+
+            <p>
+                Creaciones únicas con nombres, logos y diseños especiales.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img src="imagenes/IMG-20260509-WA0032.jpg" alt="Proyecto 3">
+
+            <h3>Robots y Prototipos</h3>
+
+            <p>
+                Proyectos tecnológicos y funcionales desarrollados a medida.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 MultiDuck - Diseño e impresión 3D
+    </p>
+
+</footer>
+
+</body>
+</html>
